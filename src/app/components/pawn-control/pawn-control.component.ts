@@ -35,7 +35,6 @@ export class PawnControlComponent implements OnInit {
   }
 
   submit(){
-    debugger;
     switch(this.pawnControl.value.command){
       case "place":
         this.addPiece()
@@ -43,7 +42,7 @@ export class PawnControlComponent implements OnInit {
         this.movePiece(this.pawnControl.value.x, this.pawnControl.value.y,this.pawnControl.value.face, this.pawnControl.value.steps)
     }
       
-    this.ps.pawnMovmentUpdate(this.pawnControl.value);
+    // this.ps.pawnMovmentUpdate(this.pawnControl.value);
   }
 
   isPawnMoveValid(x, y) {
@@ -65,7 +64,9 @@ export class PawnControlComponent implements OnInit {
       obj.x = newXPos;
       obj.y = newYPos;
       this.ps.pawnMovmentUpdate(obj);
-    } 
+    } else {
+      alert("Not able to move");
+    }
   }
 
   getSteps(
