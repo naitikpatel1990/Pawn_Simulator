@@ -9,26 +9,29 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./pawn-control.component.scss'],
 })
 export class PawnControlComponent implements OnInit {
-
-  isPawnPlaced = false;
+  // Public variables 
+  isPawnPlaced: boolean = false;
   pawnControl: FormGroup;
-  pawnCommands = ['place', 'move', 'left', 'right', 'report'];
-  disablePlace = false;
-  disableMove = false;
-  DIRECTIONS = ['north', 'east', 'south', 'west'];
-  COLORS = ['black', 'white'];
-  CHESSPIECES = { pawn: { white: '&#x2659;', black: '&#x265F;' } };
-  rows = 8;
-  columns = 8;
+  pawnCommands : Array<String> = ['place', 'move', 'left', 'right', 'report'];
+  disablePlace: boolean = false;
+  disableMove: boolean = false;
+  DIRECTIONS : Array<String> = ['north', 'east', 'south', 'west'];
+  COLORS : Array<String> = ['black', 'white'];
+  CHESSPIECES : Object = { pawn: { white: '&#x2659;', black: '&#x265F;' } };
+  rows: Number = 8;
+  columns: Number = 8;
   DIRECTIONAXIS = { north: 1, south: -1, west: -1, east: 1 };
-  currentPosition: any;
-  constructor(private fb: FormBuilder, private ps: PawnServicesService, private alertController: AlertController) {
+  currentPosition: Object = {};
+
+  constructor(
+    private fb: FormBuilder, 
+    private ps: PawnServicesService, 
+    private alertController: AlertController) {
 
   }
 
   ngOnInit() {
     this.initForm();
-
     this.pawnControl.valueChanges.subscribe(val => {
       if (val.command === 'place') {
         this.pawnControl.controls.x.setValidators([Validators.required, Validators.min(0), Validators.max(7)]);

@@ -14,13 +14,15 @@ interface Square {
 
 export class BoardComponent implements OnInit {
   constructor(private ps: PawnServicesService) { }
-  rows = 8;
-  cols = 8;
-  info = [];
+  rows : Number = 8;
+  cols : Number = 8;
+  info : Array<any> = [];
   CHESSPIECES = { pawn: { white: '&#x2659;', black: '&#x265F;' } };
 
   ngOnInit() {
-    this.reset();
+    this.reset(); // Create bord
+
+    // Subscribe service when any control called from pawn controller component
     this.ps.pawnServiceObs.subscribe((data) => {
       this.reset();
       const newPawn = {
