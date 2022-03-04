@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { BoardComponent } from './board.component';
 
-describe('BoardComponent', () => {
+fdescribe('BoardComponent', () => {
   let component: BoardComponent;
   let fixture: ComponentFixture<BoardComponent>;
 

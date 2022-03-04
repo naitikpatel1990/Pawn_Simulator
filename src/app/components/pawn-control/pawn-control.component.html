@@ -1,6 +1,6 @@
 <form [formGroup]="pawnControl">
   <ion-item-group>
-    <ion-select formControlName="command" placeholder="Pick a command">
+    <ion-select formControlName="command" placeholder="Pick a command" (ionChange)="onCommand($event)">
         <ion-select-option *ngFor="let command of pawnCommands;let ing=index;" [value]="command">{{command}}</ion-select-option>
     </ion-select>
     <div class="numerics">
@@ -23,16 +23,6 @@
         [disabled]="disablePlace"
         placeholder="0 - 7"
         formControlName="y"
-      ></ion-input>
-      <ion-input
-        type="number"
-        key="steps"
-        label="Steps"
-        [min]="1"
-        [max]="2"
-        [disabled]="disableMove"
-        placeholder="1 or 2"
-        formControlName="steps"
       ></ion-input>
     </div>
     <div>
