@@ -1,0 +1,22 @@
+<!-- <table>
+  <tr *ngFor="let row of [0,1,2,3,4,5,6,7].slice().reverse()">
+    <td *ngFor="let col of [0,1,2,3,4,5,6,7]" class="ion-text-center">
+      <p class="north">&#9650;</p>
+      <span class="coordinates">({{row}},{{col}})</span>
+    </td>
+  </tr>
+</table> -->
+
+<table>
+  <tr *ngFor="let rows of info">
+    <td *ngFor="let cols of rows" class="ion-text-center">
+      <!-- <p *ngIf="!cols.piece">{{board.tt}}</p> -->
+      <!-- <p *ngIf="cols.piece">{{cols.piece?.tt}}</p> -->
+      <p
+        [innerHtml]="cols.piece?.display"
+        [ngClass]="cols.piece?.face"
+      ></p>
+      <span  class="coordinates" innerHtml="{{ cols.x }},{{ cols.y }}"></span>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,33 @@
+table{
+    border: 10px solid black;
+    tr{
+        height: 50px;
+    td{
+        height: 50px;
+        width: 50px;
+        p{
+            &.north{
+                transform: rotate(0deg);
+            }
+            &.east{
+                transform: rotate(90deg);
+            }
+            &.west{
+                transform: rotate(-90deg);
+            }
+            &.south{
+                transform: rotate(180deg);
+            }
+        }
+      .coordinates{
+        font-size: 10px;
+      }
+    }}
+}
+
+table tr:nth-child(odd) td:nth-child(even) {
+    background: grey;
+  }
+  table tr:nth-child(even) td:nth-child(odd) {
+    background: grey;
+  }
