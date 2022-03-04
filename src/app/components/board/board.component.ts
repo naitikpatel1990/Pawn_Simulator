@@ -4,7 +4,6 @@ import { PawnServicesService } from 'src/app/services/pawn-services.service';
 interface Square {
   x: number;
   y: number;
-  // piece?: Partial<Piece>;
 }
 
 @Component({
@@ -14,9 +13,7 @@ interface Square {
 })
 
 export class BoardComponent implements OnInit {
-  constructor(private ps: PawnServicesService) {
-
-  }
+  constructor(private ps: PawnServicesService) { }
   rows = 8;
   cols = 8;
   info = [];
