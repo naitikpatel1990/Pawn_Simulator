@@ -1,0 +1,44 @@
+<form [formGroup]="pawnControl">
+  <ion-item-group>
+    <ion-select formControlName="command" placeholder="Pick a command" (ionChange)="onCommand($event)">
+        <ion-select-option *ngFor="let command of pawnCommands;let ing=index;" [value]="command">{{command}}</ion-select-option>
+    </ion-select>
+    <div class="numerics">
+      <ion-input
+        type="number"
+        key="x"
+        label="X Axis"
+        [min]="0"
+        [max]="7"
+        [disabled]="disablePlace"
+        placeholder="0 - 7"
+        formControlName="x"
+      ></ion-input>
+      <ion-input
+        type="number"
+        key="y"
+        label="Y Axis"
+        [min]="0"
+        [max]="7"
+        [disabled]="disablePlace"
+        placeholder="0 - 7"
+        formControlName="y"
+      ></ion-input>
+    </div>
+    <div>
+      <ion-select formControlName="face" placeholder="eg. {{ DIRECTIONS[0] }}">
+        <ion-select-option *ngFor="let direction of DIRECTIONS;let ing=index;" [value]="direction">{{direction}}</ion-select-option>
+    </ion-select>
+    <ion-select formControlName="color" placeholder="eg. {{ COLORS[0] }}">
+      <ion-select-option *ngFor="let color of COLORS;let ing=index;" [value]="color">{{color}}</ion-select-option>
+    </ion-select>
+    </div>
+  </ion-item-group>
+  <ion-button
+    color="secondary"
+    expand="block"
+    (click)="submit()"
+    [disabled]="pawnControl.invalid"
+    >Execute</ion-button
+  >
+</form>

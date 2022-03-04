@@ -1,0 +1,7 @@
+{
+  "name": "Pawn_Simulator",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

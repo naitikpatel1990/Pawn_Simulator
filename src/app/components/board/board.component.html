@@ -1,0 +1,11 @@
+<table>
+  <tr *ngFor="let rows of info">
+    <td *ngFor="let cols of rows" class="ion-text-center">
+      <p
+        [innerHtml]="cols.pawn?.display"
+        [ngClass]="cols.pawn?.face"
+      ></p>
+      <span class="coordinates" innerHtml="{{ cols.x }}{{ cols.y }}"></span>
+    </td>
+  </tr>
+</table>
